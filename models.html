@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<nav id="primary-navigation" aria-label="Primary Navigation">
+    <a href="index.html"></a>
+    <a href="models.html"></a>
+    <a href="contact.html"></a>
+  </nav>
+<title>Elite Models Agency - Models</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Montserrat', sans-serif; background: #fafafa; color: #222;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  header {
+    background: #111;
+    color: white;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  nav a {
+    margin-left: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+  }
+  nav a:hover,
+  nav a:focus-visible {
+    color: #ff385c;
+  }
+  .menu-button {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  .menu-button svg {
+    width: 28px;
+    height: 28px;
+  }
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 70px;
+      right: 0;
+      background: #111;
+      height: calc(100% - 70px);
+      width: 220px;
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -3px 0 8px rgba(0,0,0,0.3);
+    }
+    nav.show {
+      transform: translateX(0);
+    }
+    nav a {
+      margin: 1rem 0;
+      font-size: 1.25rem;
+    }
+    .menu-button {
+      display: block;
+    }
+  }
+  main {
+    max-width: 1140px;
+    margin: 3rem auto 6rem;
+    padding: 0 1.5rem;
+  }
+  h1.page-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 3.5rem;
+    text-align: center;
+    color: #222;
+    letter-spacing: 1.5px;
+  }
+  .model-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    gap: 2rem 2.5rem;
+  }
+  .model-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .model-card:hover,
+  .model-card:focus-within {
+    transform: translateY(-12px);
+    box-shadow: 0 16px 32px rgba(255,56,92,0.35);
+    outline: none;
+  }
+  .model-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-bottom: 4px solid #ff385c;
+  }
+  .model-details {
+    padding: 1.25rem 1.5rem 2rem;
+    text-align: center;
+  }
+  .model-details h3 {
+    margin: 0 0 8px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #222;
+  }
+  .model-details p {
+    margin: 0 0 10px;
+    font-size: 1.05rem;
+    color: #555;
+    font-weight: 500;
+  }
+  .model-details .tags {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .tag {
+    background-color: #ff385c;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    user-select: none;
+  }
+  footer {
+    background: #111;
+    color: #bbb;
+    text-align: center;
+    padding: 1.75rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 80px;
+  }
+  @media (max-width: 480px) {
+    h1.page-title {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Elite Models</div>
+  <button aria-label="Toggle menu" class="menu-button" id="menu-button" aria-expanded="false" aria-controls="primary-navigation">
+    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav id="primary-navigation" aria-label="Primary Navigation">
+    <a href="index.html">Home</a>
+    <a href="models.html" aria-current="page">Models</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+<main>
+  <h1 class="page-title">Our Models</h1>
+  <section class="model-gallery" aria-label="All models">
+    <article class="model-card" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Anna Smith posing stylishly" />
+      <div class="model-details">
+        <h3>Anna Smith</h3>
+        <p>Runway & Editorial Specialist</p>
+        <div class="tags" aria-label="Skills and specialties">
+          <span class="tag">Runway</span>
+          <span class="tag">Editorial</span>
+          <span class="tag">High Fashion</span>
+        </div>
+      </div>
+    </article>
+    <article class="model-card" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80" alt="Marco Gomez headshot portrait" />
+      <div class="model-details">
+        <h3>Marco Gomez</h3>
+        <p>High Fashion & Commercial</p>
+        <div class="tags" aria-label="Skills and specialties">
+          <span class="tag">Commercial</span>
+          <span class="tag">High Fashion</span>
+          <span class="tag">Print</span>
+        </div>
+      </div>
+    </article>
+    <article class="model-card" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" alt="Emily Johnson closeup portrait" />
+      <div class="model-details">
+        <h3>Emily Johnson</h3>
+        <p>Runway & Print</p>
+        <div class="tags" aria-label="Skills and specialties">
+          <span class="tag">Runway</span>
+          <span class="tag">Print</span>
+          <span class="tag">Editorial</span>
+        </div>
+      </div>
+    </article>
+    <article class="model-card" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" alt="David Ramirez portrait closeup" />
+      <div class="model-details">
+        <h3>David Ramirez</h3>
+        <p>Commercial & Lifestyle</p>
+        <div class="tags" aria-label="Skills and specialties">
+          <span class="tag">Commercial</span>
+          <span class="tag">Lifestyle</span>
+          <span class="tag">Print</span>
+        </div>
+      </div>
+    </article>
+    <article class="model-card" tabindex="0">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80" alt="Sophia Lee posing outdoors" />
+      <div class="model-details">
+        <h3>Sophia Lee</h3>
+        <p>Editorial & High Fashion</p>
+        <div class="tags" aria-label="Skills and specialties">
+          <span class="tag">Editorial</span>
+          <span class="tag">High Fashion</span>
+          <span class="tag">Runway</span>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+<footer role="contentinfo">
+  &copy; 2024 Elite Models Agency. All rights reserved.
+</footer>
+<script>
+  const menuButton = document.getElementById('menu-button');
+  const nav = document.getElementById('primary-navigation');
+  menuButton.addEventListener('click', () => {
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+    menuButton.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('show');
+  });
+</script>
+</body>
+</html>

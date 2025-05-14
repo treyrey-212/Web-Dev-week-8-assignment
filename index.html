@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<nav id="primary-navigation" aria-label="Primary Navigation">
+    <a href="index.html"></a>
+    <a href="models.html"></a>
+    <a href="contact.html"></a>
+  </nav>
+<title>Elite Models Agency - Home</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Montserrat', sans-serif; background: #fff7f8; color: #222;
+    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  header {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: white;
+    padding: 1.25rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(255,75,43,0.35);
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.25);
+  }
+  nav {
+    display: flex;
+    align-items: center;
+  }
+  nav a {
+    margin-left: 2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  nav a:hover,
+  nav a:focus-visible {
+    color: #fff0f2;
+    text-shadow: 0 0 8px #fff0f2;
+  }
+  /* Mobile menu button */
+  .menu-button {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  .menu-button svg {
+    width: 28px;
+    height: 28px;
+  }
+  /* Mobile nav */
+  @media (max-width: 768px) {
+    nav {
+      position: fixed;
+      top: 70px;
+      right: 0;
+      background: linear-gradient(180deg, #ff416c, #ff4b2b);
+      height: calc(100% - 70px);
+      width: 220px;
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      box-shadow: -3px 0 16px rgba(255,75,43,0.8);
+      border-radius: 0 0 0 12px;
+    }
+    nav.show {
+      transform: translateX(0);
+    }
+    nav a {
+      margin: 1rem 0;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .menu-button {
+      display: block;
+    }
+  }
+  .hero {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #611c35;
+    text-shadow: 0 0 12px rgba(255,255,255,0.5);
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    letter-spacing: 5px;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    filter: drop-shadow(0 0 5px #ff416c);
+    transition: transform 0.4s ease;
+  }
+  .hero h1:hover {
+    transform: scale(1.05);
+  }
+  .hero p {
+    font-size: 1.4rem;
+    max-width: 720px;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    color: #7a354b;
+  }
+  .btn-primary {
+    background: linear-gradient(90deg, #ff416c 0%, #ff4b2b 100%);
+    color: white;
+    border: none;
+    padding: 1.2rem 3.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.4s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 25px rgba(255,75,43,0.6);
+    text-decoration: none;
+    user-select:none;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus-visible {
+    background: linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%);
+    box-shadow: 0 15px 30px rgba(255,65,63,0.75);
+    outline: none;
+  }
+  main {
+    max-width: 1140px;
+    margin: 4rem auto 6rem;
+    padding: 0 1.5rem;
+  }
+  h2.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 3.5rem;
+    color: #611c35;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 6px rgba(255,65,97,0.5);
+  }
+  .model-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 3rem 3.5rem;
+  }
+  .model-card {
+    background: #fff0f2;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(255,75,43,0.25);
+    transition: transform 0.5s ease, box-shadow 0.4s ease;
+    cursor: default;
+  }
+  .model-card:hover,
+  .model-card:focus-within {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 20px 45px rgba(255,65,63,0.5);
+    outline: none;
+  }
+  .model-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-bottom: 5px solid #ff416c;
+    border-radius: 20px 20px 0 0;
+    filter: drop-shadow(0 5px 8px rgba(255,65,63,0.3));
+  }
+  .model-info {
+    padding: 1.5rem 2rem 2.5rem;
+    text-align: center;
+  }
+  .model-info h3 {
+    margin: 0 0 12px;
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #8b2643;
+  }
+  .model-info p {
+    color: #b34b5f;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  footer {
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    color: #fccace;
+    text-align: center;
+    padding: 2.25rem 1rem;
+    font-size: 1rem;
+    margin-top: 80px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 -4px 20px rgba(255,75,43,0.5);
+  }
+  /* Responsive Text */
+  @media (max-width: 600px) {
+    .hero h1 {
+      font-size: 2.75rem;
+      letter-spacing: 3px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+    }
+    .btn-primary{
+      padding: 1rem 3rem;
+      font-size: 1.1rem;
+    }
+    h2.section-title {
+      font-size: 2.2rem;
+      margin-bottom: 2.7rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo" tabindex="0">Elite Models</div>
+  <button aria-label="Toggle menu" class="menu-button" id="menu-button" aria-expanded="false" aria-controls="primary-navigation">
+    <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
+  <nav id="primary-navigation" aria-label="Primary Navigation">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="models.html">Models</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" role="banner" aria-label="Agency introduction">
+    <h1>Elite Models Agency</h1>
+    <p>Discover the finest talents in fashion, beauty, and style. Representing iconic models worldwide with professionalism and passion.</p>
+    <a href="models.html" class="btn-primary" aria-label="View our models">View Our Models</a>
+  </section>
+
+  <section aria-label="Featured Models">
+    <h2 class="section-title">Featured Models</h2>
+    <div class="model-cards">
+      <article class="model-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" alt="Anna Smith posing stylishly" />
+        <div class="model-info">
+          <h3>Anna Smith</h3>
+          <p>Runway & Editorial Specialist</p>
+        </div>
+      </article>
+      <article class="model-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80" alt="Marco Gomez headshot portrait" />
+        <div class="model-info">
+          <h3>Marco Gomez</h3>
+          <p>High Fashion & Commercial</p>
+        </div>
+      </article>
+      <article class="model-card" tabindex="0">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" alt="Emily Johnson closeup portrait" />
+        <div class="model-info">
+          <h3>Emily Johnson</h3>
+          <p>Runway & Print</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  &copy; 2024 Elite Models Agency. All rights reserved.
+</footer>
+
+<script>
+  const menuButton = document.getElementById('menu-button');
+  const nav = document.getElementById('primary-navigation');
+  menuButton.addEventListener('click', () => {
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true' || false;
+    menuButton.setAttribute('aria-expanded', !expanded);
+    nav.classList.toggle('show');
+  });
+</script>
+</body>
+</html>
